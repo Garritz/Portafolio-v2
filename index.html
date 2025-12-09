@@ -198,6 +198,81 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
+        .carousel {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            height: 400px;
+            margin: 2.5rem 0;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            background-color: #E6E1DA;
+        }
+
+        .carousel-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: none;
+        }
+
+        .carousel-image.active {
+            display: block;
+        }
+
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: space-between;
+            padding: 0 1rem;
+            pointer-events: none;
+        }
+
+        .carousel-btn {
+            background-color: rgba(255, 255, 255, 0.7);
+            border: none;
+            color: #222222;
+            font-size: 28px;
+            cursor: pointer;
+            padding: 0.5rem 0.75rem;
+            border-radius: 4px;
+            transition: all 0.3s;
+            pointer-events: all;
+            line-height: 1;
+        }
+
+        .carousel-btn:hover {
+            background-color: rgba(47, 143, 132, 0.9);
+            color: white;
+        }
+
+        .carousel-indicators {
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .carousel-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.6);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .carousel-dot.active {
+            background-color: #2F8F84;
+        }
+
         strong {
             font-family: 'Open Sans', sans-serif;
             font-weight: 700;
@@ -265,7 +340,7 @@
 
             <!-- Detalles de proyectos -->
             <div id="lista-tareas" class="project-detail">
-                <a href="#" class="back-button" onclick="showProjectList(); return false;">Volver</a>
+                <a href="#" class="back-button" onclick="showProjectList(); return false;">← Volver</a>
                 
                 <h1>Lista de tareas</h1>
                 <h2 class="subtitle">Minimalista y efectiva.</h2>
@@ -281,7 +356,7 @@
             </div>
 
             <div id="esquemas-color" class="project-detail">
-                <a href="#" class="back-button" onclick="showProjectList(); return false;">Volver</a>
+                <a href="#" class="back-button" onclick="showProjectList(); return false;">← Volver</a>
                 
                 <h1>Esquemas de color exterior</h1>
                 <h2 class="subtitle">Edificio La Fontana de Santa María.</h2>
@@ -297,18 +372,37 @@
             </div>
 
             <div id="casa-san-antonio" class="project-detail">
-                <a href="#" class="back-button" onclick="showProjectList(); return false;">Volver</a>
+                <a href="#" class="back-button" onclick="showProjectList(); return false;">← Volver</a>
                 
                 <h1>Casa en San Antonio, Chile</h1>
                 <h2 class="subtitle">Remodelación arquitectónica.</h2>
                 
                 <p>Diseñé y construí la remodelación de mi casa en San Antonio. Apliqué criterios de eficiencia energética como: geotermia compacta, envolvente continua, aislación exterior, ventanas de PVC y doble vidrio hermético, y el uso de madera reciclada en la construcción.</p>
                 
-                <img src="/assets/img/medea1.jpeg" alt="Casa San Antonio Interior" class="project-image">
+                <div class="carousel" id="carousel">
+                    <img src="/assets/img/medea1.jpeg" alt="Casa San Antonio - Exterior" class="carousel-image active">
+                    <img src="/assets/img/medea2.jpeg" alt="Casa San Antonio - Escalera" class="carousel-image">
+                    <img src="/assets/img/medea3.jpeg" alt="Casa San Antonio - Interior" class="carousel-image">
+                    <img src="/assets/img/medea4.jpeg" alt="Casa San Antonio - Altillo" class="carousel-image">
+                    <img src="/assets/img/medea5.jpeg" alt="Casa San Antonio - Vista" class="carousel-image">
+                    
+                    <div class="carousel-controls">
+                        <button class="carousel-btn" onclick="changeSlide(-1)">‹</button>
+                        <button class="carousel-btn" onclick="changeSlide(1)">›</button>
+                    </div>
+                    
+                    <div class="carousel-indicators">
+                        <span class="carousel-dot active" onclick="goToSlide(0)"></span>
+                        <span class="carousel-dot" onclick="goToSlide(1)"></span>
+                        <span class="carousel-dot" onclick="goToSlide(2)"></span>
+                        <span class="carousel-dot" onclick="goToSlide(3)"></span>
+                        <span class="carousel-dot" onclick="goToSlide(4)"></span>
+                    </div>
+                </div>
             </div>
 
             <div id="sos-pets" class="project-detail">
-                <a href="#" class="back-button" onclick="showProjectList(); return false;">Volver</a>
+                <a href="#" class="back-button" onclick="showProjectList(); return false;">← Volver</a>
                 
                 <h1>S.O.S. Pets</h1>
                 <h2 class="subtitle">Proyecto UX/UI.</h2>
@@ -326,11 +420,7 @@
 
         <!-- Sección Contacto -->
         <div id="contacto" class="section">
-            <p>Siempre es bienvenido el correo electrónico. Puedes escribirme a <strong>jgarrido@materiamental.cl</strong>.</p>
-            
-            <p>Mi portafolio de código está en <strong>github.com/Garritz</strong>.</p>
-            
-            <p>Podemos conectar en Linkedin: <strong>linkedin.com/in/jorgegarridocampos/</strong></p>
+            <p>Puedes ver mis repositorios en <a href="https://github.com/Garritz" target="_blank" class="link-body">GitHub</a>. Para conectar puedes <a href="mailto:jgarrido@materiamental.cl" class="link-body">escribirme</a> o ver mi perfil de <a href="https://www.linkedin.com/in/jorgegarridocampos" target="_blank" class="link-body">Linkedin</a>.</p>
         </div>
     </div>
 
@@ -387,6 +477,33 @@
                 detail.classList.remove('active');
             });
             window.scrollTo(0, 0);
+        }
+
+        // Carrusel de imágenes
+        let currentSlide = 0;
+
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.carousel-image');
+            const dots = document.querySelectorAll('.carousel-dot');
+            
+            if (n >= slides.length) currentSlide = 0;
+            if (n < 0) currentSlide = slides.length - 1;
+            
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            showSlide(currentSlide);
+        }
+
+        function goToSlide(n) {
+            currentSlide = n;
+            showSlide(currentSlide);
         }
     </script>
 </body>
