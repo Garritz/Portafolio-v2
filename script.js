@@ -1,13 +1,13 @@
 // Precarga de imágenes
 const imagesToPreload = [
-    '/assets/img/tareas.png',
-    '/assets/img/fontana.jpg',
-    '/assets/img/medea1.jpeg',
-    '/assets/img/medea2.jpeg',
-    '/assets/img/medea3.jpeg',
-    '/assets/img/medea4.jpeg',
-    '/assets/img/medea5.jpeg',
-    '/assets/img/sospets.jpg'
+    './assets/img/tareas.png',
+    './assets/img/fontana.jpg',
+    './assets/img/medea1.jpeg',
+    './assets/img/medea2.jpeg',
+    './assets/img/medea3.jpeg',
+    './assets/img/medea4.jpeg',
+    './assets/img/medea5.jpeg',
+    './assets/img/sospets.jpg'
 ];
 
 function preloadImages() {
