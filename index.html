@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jorge Garrido - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;600;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 16px;
+            background-color: #F3F7EE;
+            color: #222222;
+            line-height: 1.2;
+        }
+
+        nav {
+            display: flex;
+            justify-content: start;
+            gap: 3rem;
+            padding: 1rem 3.5rem 0.5rem 1.5rem;
+            background-color: #F3F7EE;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #66625A;
+            font-family: 'Bitter', serif;
+            font-weight: 600;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        nav a.active {
+            color: #2F8F84;
+        }
+
+        nav a:hover {
+            color: #2F8F84;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem;
+        }
+
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        /* Estilos de texto según JSON */
+        h1 {
+            font-family: 'Bitter', serif;
+            font-weight: 600;
+            font-size: 24px;
+            line-height: 1.2;
+            margin-bottom: 0;
+        }
+
+        h2 {
+            font-family: 'Bitter', serif;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 1.2;
+            margin-bottom: 0;
+        }
+
+        h3 {
+            font-family: 'Bitter', serif;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 1.2;
+            margin-bottom: 0;
+        }
+
+        p, .body {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 1.2;
+            margin-bottom: 0;
+            color: #3a3a3a;
+        }
+
+        .subtitle {
+            font-family: 'Bitter', serif;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 1.2;
+            color: #4a4a4a;
+            margin-bottom: 0;
+        }
+
+        a.link-body {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            color: #d97662;
+            text-decoration: none;
+        }
+
+        a.link-h2 {
+            font-family: 'Bitter', serif;
+            font-weight: 700;
+            font-size: 20px;
+            text-decoration: none;
+        }
+
+        a.link-body:hover,
+        a.link-h2:hover {
+            text-decoration: underline;
+        }
+
+        .project-list {
+            list-style: none;
+        }
+
+        .project-item {
+            margin-bottom: 2.5rem;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .project-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .project-item:hover h2 {
+            color: #2F8F84;
+        }
+
+        .project-desc {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            color: #5a5a5a;
+        }
+
+        .project-detail {
+            display: none;
+        }
+
+        .project-detail.active {
+            display: block;
+        }
+
+        .project-detail .subtitle {
+            margin-bottom: 2.5rem;
+        }
+
+        .back-button {
+            display: inline-block;
+            color: #2F8F84;
+            text-decoration: none;
+            margin-bottom: 1.5rem;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+        }
+
+        .back-button:hover {
+            color: #2F8F84;
+            text-decoration: underline;
+        }
+
+        .project-links {
+            margin: 2.5rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .project-image {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 8px;
+            margin: 2.5rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        strong {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 700;
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                gap: 2rem;
+            }
+            
+            .container {
+                padding: 1.5rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#" data-section="jorge" class="nav-link active">Jorge</a>
+        <a href="#" data-section="proyectos" class="nav-link">Proyectos</a>
+        <a href="#" data-section="contacto" class="nav-link">Contacto</a>
+    </nav>
+
+    <div class="container">
+        <!-- Sección Jorge -->
+        <div id="jorge" class="section active">
+            <div class="hero-header">
+                <h1>Jorge Garrido</h1>
+                <h2 class="subtitle">Diseñador frontend,<br>Diseñador arquitectónico.</h2>
+            </div>
+            
+            <p>Soy un arquitecto con 15 años de experiencia que agregó el código a su toolkit.</p>
+            
+            <p>Después de entender cómo funcionan los espacios físicos, aprendí a diseñar experiencias digitales con JavaScript, Node.js y Express, con conocimientos previos de UX/UI.</p>
+            
+            <p>En Talento Digital construí una app de gestión de tareas que llevé hasta la nube, aplicando la misma lógica con la que proyecto edificios: estructura, función y experiencia.</p>
+            
+            <p>Lo que ofrezco es único: puedo conversar con ingenieros estructurales y con desarrolladores para juntos traducir necesidades del mundo físico a soluciones digitales.</p>
+            
+            <p>Actualmente estoy en búsqueda de nuevos desafíos profesionales en PropTech, BIM u otros espacios donde mi doble mirada genere valor real.</p>
+        </div>
+
+        <!-- Sección Proyectos -->
+        <div id="proyectos" class="section">
+            <div id="project-list-view">
+                <ul class="project-list">
+                    <li class="project-item" data-project="lista-tareas">
+                        <h2>Lista de tareas</h2>
+                        <p class="project-desc">Minimalista y efectiva.</p>
+                    </li>
+                    <li class="project-item" data-project="esquemas-color">
+                        <h2>Esquemas de color exterior</h2>
+                        <p class="project-desc">Edificio La Fontana de Santa María.</p>
+                    </li>
+                    <li class="project-item" data-project="casa-san-antonio">
+                        <h2>Casa en San Antonio, Chile</h2>
+                        <p class="project-desc">Remodelación arquitectónica.</p>
+                    </li>
+                    <li class="project-item" data-project="sos-pets">
+                        <h2>S.O.S. Pets</h2>
+                        <p class="project-desc">Proyecto UX/UI.</p>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Detalles de proyectos -->
+            <div id="lista-tareas" class="project-detail">
+                <a href="#" class="back-button" onclick="showProjectList(); return false;">← Volver</a>
+                
+                <h1>Lista de tareas</h1>
+                <h2 class="subtitle">Minimalista y efectiva.</h2>
+                
+                <p>Una aplicación web multiplataforma diseñada como apoyo cognitivo sin distracciones. Frontend desplegado en GitHub Pages conectado a backend en Render con MongoDB, permitiendo sincronización entre dispositivos y soporte multiusuario. Interfaz austera construida con HTML, CSS y JavaScript vainilla, enfocada en organización diaria efectiva.</p>
+                
+                <div class="project-links">
+                    <a href="https://github.com/Garritz" target="_blank" class="link-body">Código fuente en Github.</a>
+                    <a href="#" onclick="alert('Demo de la app'); return false;" class="link-body">Enlace a la app.</a>
+                </div>
+
+                <img src="/assets/img/tareas.png" alt="Lista de tareas app" class="project-image">
+            </div>
+
+            <div id="esquemas-color" class="project-detail">
+                <a href="#" class="back-button" onclick="showProjectList(); return false;">← Volver</a>
+                
+                <h1>Esquemas de color exterior</h1>
+                <h2 class="subtitle">Edificio La Fontana de Santa María.</h2>
+                
+                <p>Construí un sitio web estático para presentar las opciones de color de pintura exterior para el edificio.</p>
+                
+                <div class="project-links">
+                    <a href="https://github.com/Garritz" target="_blank" class="link-body">Código fuente en Github.</a>
+                    <a href="#" onclick="alert('Ver sitio web'); return false;" class="link-body">Enlace al sitio web.</a>
+                </div>
+                
+                <img src="/assets/img/fontana.jpg" alt="Edificio La Fontana" class="project-image">
+            </div>
+
+            <div id="casa-san-antonio" class="project-detail">
+                <a href="#" class="back-button" onclick="showProjectList(); return false;">← Volver</a>
+                
+                <h1>Casa en San Antonio, Chile</h1>
+                <h2 class="subtitle">Remodelación arquitectónica.</h2>
+                
+                <p>Diseñé y construí la remodelación de mi casa en San Antonio. Apliqué criterios de eficiencia energética como: geotermia compacta, envolvente continua, aislación exterior, ventanas de PVC y doble vidrio hermético, y el uso de madera reciclada en la construcción.</p>
+                
+                <img src="/assets/img/medea1.jpeg" alt="Casa San Antonio Interior" class="project-image">
+            </div>
+
+            <div id="sos-pets" class="project-detail">
+                <a href="#" class="back-button" onclick="showProjectList(); return false;">← Volver</a>
+                
+                <h1>S.O.S. Pets</h1>
+                <h2 class="subtitle">Proyecto UX/UI.</h2>
+                
+                <p>Basados en la metodología Design Thinking, y usando herramientas como cardsorting e inventario de contenidos, diseñamos la interfaz de usuario de S.O.S. Pets, aplicación móvil que cubre la primera necesidad de "crear alerta" para buscar una mascota perdida y que pueda volver a reencontrarse con su familia.</p>
+                
+                <div class="project-links">
+                    <a href="https://www.behance.net" target="_blank" class="link-body">Link en Behance.</a>
+                </div>
+
+                <img src="/assets/img/sospets.jpg" alt="S.O.S. Pets App" class="project-image">
+            </div>
+        </div>
+
+        <!-- Sección Contacto -->
+        <div id="contacto" class="section">
+            <p>Siempre es bienvenido el correo electrónico. Puedes escribirme a <strong>jgarrido@materiamental.cl</strong>.</p>
+            
+            <p>Mi portafolio de código está en <strong>github.com/Garritz</strong>.</p>
+            
+            <p>Podemos conectar en Linkedin: <strong>linkedin.com/in/jorgegarridocampos/</strong></p>
+        </div>
+    </div>
+
+    <script>
+        // Navegación entre secciones
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('.section');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const sectionId = link.dataset.section;
+                
+                // Actualizar enlaces activos
+                navLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+                
+                // Mostrar sección correspondiente
+                sections.forEach(s => s.classList.remove('active'));
+                document.getElementById(sectionId).classList.add('active');
+                
+                // Si es proyectos, mostrar lista
+                if (sectionId === 'proyectos') {
+                    showProjectList();
+                }
+
+                // Scroll al top
+                window.scrollTo(0, 0);
+            });
+        });
+
+        // Navegación de proyectos
+        const projectItems = document.querySelectorAll('.project-item');
+        
+        projectItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const projectId = item.dataset.project;
+                showProjectDetail(projectId);
+            });
+        });
+
+        function showProjectDetail(projectId) {
+            document.getElementById('project-list-view').style.display = 'none';
+            document.querySelectorAll('.project-detail').forEach(detail => {
+                detail.classList.remove('active');
+            });
+            document.getElementById(projectId).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        function showProjectList() {
+            document.getElementById('project-list-view').style.display = 'block';
+            document.querySelectorAll('.project-detail').forEach(detail => {
+                detail.classList.remove('active');
+            });
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>

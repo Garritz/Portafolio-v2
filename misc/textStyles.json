@@ -1,0 +1,71 @@
+{
+  "fileName": "Portafolio",
+  "textStyles": [
+    {
+      "name": "Body",
+      "fontFamily": "Open Sans",
+      "fontWeight": "Regular",
+      "fontSize": 16,
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": 0
+      },
+      "textCase": "ORIGINAL"
+    },
+    {
+      "name": "H1",
+      "fontFamily": "Bitter",
+      "fontWeight": "SemiBold",
+      "fontSize": 24,
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": 0
+      },
+      "textCase": "ORIGINAL"
+    },
+    {
+      "name": "H2",
+      "fontFamily": "Bitter",
+      "fontWeight": "Regular",
+      "fontSize": 20,
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": 0
+      },
+      "textCase": "ORIGINAL"
+    },
+    {
+      "name": "H3",
+      "fontFamily": "Bitter",
+      "fontWeight": "SemiBold",
+      "fontSize": 16,
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": 0
+      },
+      "textCase": "ORIGINAL"
+    },
+    {
+      "name": "Link - Body",
+      "fontFamily": "Open Sans",
+      "fontWeight": "Bold",
+      "fontSize": 16,
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": 0
+      },
+      "textCase": "ORIGINAL"
+    },
+    {
+      "name": "Link - H2",
+      "fontFamily": "Bitter",
+      "fontWeight": "Bold",
+      "fontSize": 20,
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": 0
+      },
+      "textCase": "ORIGINAL"
+    }
+  ]
+}
