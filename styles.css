@@ -189,24 +189,6 @@ a.link-h2:hover {
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-.project-preview {
-    margin: 2.5rem 0;
-}
-
-.project-preview h3 {
-    margin-bottom: 1rem;
-    color: #222222;
-}
-
-.project-iframe {
-    width: 100%;
-    height: 500px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    background-color: white;
-}
-
 .carousel {
     position: relative;
     width: 100%;
